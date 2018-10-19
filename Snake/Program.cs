@@ -10,29 +10,42 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Point p1 = new Point(1, 2, '*');
+            Console.SetBufferSize(120, 30);
 
-            p1.Draw();
-            Point p2 = new Point(4, 5, '#');
+            //отрисовка рамочки
+            HorizontalLine upLine = new HorizontalLine(0, 119, 0, '+');
+            HorizontalLine downLine = new HorizontalLine(0, 119, 28, '+');
+            VertikalLine leftLine = new VertikalLine(0, 28, 0, '+');
+            VertikalLine rightLine = new VertikalLine(0, 28, 119, '+');
+            upLine.Drow();
+            downLine.Drow();
+            leftLine.Drow();
+            rightLine.Drow();
+            // отрисовка точек
+            Point p = new Point(4, 5, '*');
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Drow();
+            #region Lesson6
 
-            p2.Draw();
-            Point p3 = new Point(8, 10, '@');
-            Point p4 = new Point(11, 12, '$');
-            Point p5 = new Point(13, 13, '%');
-            Point p6 = new Point(44, 15, '^');
-            
-            List<Point> pList = new List<Point>();
-            pList.Add(p1);
-            pList.Add(p2);
-            pList.Add(p3);
-            pList.Add(p4);
-            pList.Add(p5);
-            pList.Add(p6);
-            foreach (var item in pList)
 
-            {
-                item.Draw();
-            }
+            //Point p3 = new Point(8, 10, '@');
+            //Point p4 = new Point(11, 12, '$');
+            //Point p5 = new Point(13, 13, '%');
+            //Point p6 = new Point(44, 15, '^');
+
+            //List<Point> pList = new List<Point>();
+            //pList.Add(p1);
+            //pList.Add(p2);
+            //pList.Add(p3);
+            //pList.Add(p4);
+            //pList.Add(p5);
+            //pList.Add(p6);
+            //foreach (var item in pList)
+
+            //{
+            //    item.Draw();
+            //}
+            #endregion
             Console.ReadLine();
 
             #region lesson5
