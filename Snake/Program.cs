@@ -10,13 +10,21 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-          //  Point p1 = new Point(1,2,'*');
-                               
-             //   p1.Draw();
-           // Point p2 = new Point(4,5,'#');
-                        
-               // p2.Draw();
+            //  Point p1 = new Point(1,2,'*');
 
+            //   p1.Draw();
+            // Point p2 = new Point(4,5,'#');
+
+            // p2.Draw();
+            int x = 1;
+            Func1(x);
+            Console.WriteLine("Func1.x = " + x);
+            x = 1;
+            Func2(x);
+            Console.WriteLine("Func2.x = " + x);
+            x = 1;
+            Func3(x);
+            Console.WriteLine("Func3.x = " + x);
             Point p1 = new Point(1, 3, '*');
             Move(p1, 10, 10);
             Console.WriteLine("Call Move. p1.x = " + p1.x + ", p1.y = " + p1.y);
