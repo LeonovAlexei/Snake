@@ -14,24 +14,30 @@ namespace Snake
             Console.SetBufferSize(120, 30);
 
             //отрисовка рамочки
-            HorizontalLine upLine = new HorizontalLine(0, 119, 0, '+');
-            HorizontalLine downLine = new HorizontalLine(0, 119, 28, '+');
-            VertikalLine leftLine = new VertikalLine(0, 28, 0, '+');
-            VertikalLine rightLine = new VertikalLine(0, 28, 119, '+');
-            upLine.Drow();
-            downLine.Drow();
-            leftLine.Drow();
-            rightLine.Drow();
+            Walls walls = new Walls(119, 28);
+            walls.Draw();
+            //HorizontalLine upLine = new HorizontalLine(0, 119, 0, '+');
+            //HorizontalLine downLine = new HorizontalLine(0, 119, 28, '+');
+            //VertikalLine leftLine = new VertikalLine(0, 28, 0, '+');
+            //VertikalLine rightLine = new VertikalLine(0, 28, 119, '+');
+            //upLine.Drow();
+            //downLine.Drow();
+            //leftLine.Drow();
+            //rightLine.Drow();
             // отрисовка точек
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
-            snake.Drow();
+            snake.Draw();
             FoodCreator foodCreator = new FoodCreator(80, 26, '$');
             Point food = foodCreator.CreateFood();
             food.Draw();
 
             while (true)
             {
+                if (walls.IsHit(snake)||snake.IsHitTail() )
+                {
+                    break;
+                }
                 
                 if (snake.Eat(food))
                 {
@@ -42,8 +48,9 @@ namespace Snake
                 else
                 {
                     snake.Move();
-                    Thread.Sleep(100);
+                    
                 }
+                Thread.Sleep(100);
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
